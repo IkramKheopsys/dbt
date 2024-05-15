@@ -1,0 +1,23 @@
+name: 'my_postgres_db'
+version: '1.0.0'
+config-version: 2
+
+profile: 'my_postgres_db'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  users:
+    example:
+      +materialized: table
+      +schema: source 
+

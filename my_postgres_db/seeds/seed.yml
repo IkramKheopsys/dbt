@@ -1,0 +1,22 @@
+version: 2
+
+seeds:
+  - name: source.users
+    enabled: true
+    quote_columns: true
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: user_name
+        tests:
+          - not_null
+      - name: email
+        tests:
+          - not_null
+    file_format: csv
+    file_path: "data.csv"
+    schema: source
+    database: dwh
+    table: users
+

@@ -1,0 +1,11 @@
+my_postgres_db:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgresql-1eb6fc33-o593b7be3.database.cloud.ovh.net
+      port: 20184
+      user: avnadmin 
+      pass: EcMoXr4elnY53Lz6IHT1
+      dbname: dwh
+      schema: source

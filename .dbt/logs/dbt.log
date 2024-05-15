@@ -1,0 +1,157 @@
+[0m10:55:43.669917 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0b8ee50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0b8eb90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0b8e810>]}
+
+
+============================== 10:55:43.674499 | 6d5e988c-fc3a-45d5-997c-373ba326516c ==============================
+[0m10:55:43.674499 [info ] [MainThread]: Running with dbt=1.5.11
+[0m10:55:43.674920 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/home/airflow/.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m10:55:43.675307 [info ] [MainThread]: dbt version: 1.5.11
+[0m10:55:43.675573 [info ] [MainThread]: python version: 3.7.16
+[0m10:55:43.675816 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m10:55:43.676059 [info ] [MainThread]: os info: Linux-6.5.0-28-generic-x86_64-with-debian-11.6
+[0m10:55:43.676291 [info ] [MainThread]: Using profiles.yml file at /home/airflow/.dbt/profiles.yml
+[0m10:55:43.676522 [info ] [MainThread]: Using dbt_project.yml file at /home/airflow/.dbt/dbt_project.yml
+[0m10:55:43.676748 [info ] [MainThread]: Configuration:
+[0m10:55:43.707701 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m10:55:43.708102 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m10:55:43.708389 [info ] [MainThread]: Required dependencies:
+[0m10:55:43.708665 [debug] [MainThread]: Executing "git --help"
+[0m10:55:43.712269 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m10:55:43.712774 [info ] [MainThread]: Connection:
+[0m10:55:43.713082 [info ] [MainThread]:   host: 172.18.0.3
+[0m10:55:43.713329 [info ] [MainThread]:   port: 5432
+[0m10:55:43.713559 [info ] [MainThread]:   user: airflow
+[0m10:55:43.713788 [info ] [MainThread]:   database: airflow
+[0m10:55:43.714011 [info ] [MainThread]:   schema: source
+[0m10:55:43.714234 [info ] [MainThread]:   search_path: None
+[0m10:55:43.714459 [info ] [MainThread]:   keepalives_idle: 0
+[0m10:55:43.714681 [info ] [MainThread]:   sslmode: None
+[0m10:55:43.715166 [info ] [MainThread]: Registered adapter: postgres=1.5.11
+[0m10:55:43.715723 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m10:55:43.715965 [debug] [MainThread]: Using postgres connection "debug"
+[0m10:55:43.716151 [debug] [MainThread]: On debug: select 1 as id
+[0m10:55:43.716333 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m10:55:43.716815 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "172.18.0.3", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[0m10:55:43.717279 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m10:55:43.717488 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m10:55:43.717698 [debug] [MainThread]: On debug: No close available on handle
+[0m10:55:43.717893 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m10:55:43.718154 [info ] [MainThread]: [31m3 checks failed:[0m
+[0m10:55:43.718387 [info ] [MainThread]: Could not load dbt_project.yml
+
+[0m10:55:43.718614 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m10:55:43.718848 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "172.18.0.3", port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m10:55:43.719318 [debug] [MainThread]: Command `dbt debug` failed at 10:55:43.719228 after 0.06 seconds
+[0m10:55:43.719567 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m10:55:43.719798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0bdfa10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0bc5350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c04c0bc5a10>]}
+[0m10:55:43.720080 [debug] [MainThread]: Flushing usage events
+[0m14:40:58.115431 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a14750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a14e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a14f50>]}
+
+
+============================== 14:40:58.122168 | bdf9dc97-d496-497f-80fc-eebf7dd8e845 ==============================
+[0m14:40:58.122168 [info ] [MainThread]: Running with dbt=1.5.11
+[0m14:40:58.122789 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/airflow/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m14:40:58.123352 [info ] [MainThread]: dbt version: 1.5.11
+[0m14:40:58.123732 [info ] [MainThread]: python version: 3.7.16
+[0m14:40:58.124085 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m14:40:58.124483 [info ] [MainThread]: os info: Linux-6.5.0-28-generic-x86_64-with-debian-11.6
+[0m14:40:58.124870 [info ] [MainThread]: Using profiles.yml file at /home/airflow/.dbt/profiles.yml
+[0m14:40:58.125228 [info ] [MainThread]: Using dbt_project.yml file at /home/airflow/.dbt/dbt_project.yml
+[0m14:40:58.125576 [info ] [MainThread]: Configuration:
+[0m14:40:58.171441 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:40:58.172027 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:40:58.172456 [info ] [MainThread]: Required dependencies:
+[0m14:40:58.172869 [debug] [MainThread]: Executing "git --help"
+[0m14:40:58.177055 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m14:40:58.177782 [info ] [MainThread]: Connection:
+[0m14:40:58.178229 [info ] [MainThread]:   host: postgresql-1eb6fc33-o593b7be3.database.cloud.ovh.net
+[0m14:40:58.178595 [info ] [MainThread]:   port: 20184
+[0m14:40:58.178937 [info ] [MainThread]:   user: kheo-dbt
+[0m14:40:58.179275 [info ] [MainThread]:   database: dwh
+[0m14:40:58.179607 [info ] [MainThread]:   schema: source
+[0m14:40:58.179938 [info ] [MainThread]:   search_path: None
+[0m14:40:58.180270 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:40:58.180622 [info ] [MainThread]:   sslmode: None
+[0m14:40:58.181349 [info ] [MainThread]: Registered adapter: postgres=1.5.11
+[0m14:40:58.182164 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:40:58.182528 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:40:58.182819 [debug] [MainThread]: On debug: select 1 as id
+[0m14:40:58.183090 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:40:58.544999 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m14:40:58.546948 [debug] [MainThread]: On debug: Close
+[0m14:40:58.547722 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:40:58.548575 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m14:40:58.548999 [info ] [MainThread]: Could not load dbt_project.yml
+
+[0m14:40:58.549362 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m14:40:58.550016 [debug] [MainThread]: Command `dbt debug` failed at 14:40:58.549896 after 0.45 seconds
+[0m14:40:58.550365 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:40:58.550708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a31f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a31d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1fe9a31fd0>]}
+[0m14:40:58.551117 [debug] [MainThread]: Flushing usage events
+[0m16:38:01.310859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d0da9d510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d0fe33550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d10c34e90>]}
+
+
+============================== 16:38:01.315570 | e12d5fbf-2d91-49ef-aff5-d20c8641299f ==============================
+[0m16:38:01.315570 [info ] [MainThread]: Running with dbt=1.5.11
+[0m16:38:01.315998 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/airflow/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m16:38:01.316407 [info ] [MainThread]: dbt version: 1.5.11
+[0m16:38:01.316679 [info ] [MainThread]: python version: 3.7.16
+[0m16:38:01.316926 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m16:38:01.317166 [info ] [MainThread]: os info: Linux-6.5.0-28-generic-x86_64-with-debian-11.6
+[0m16:38:01.317398 [info ] [MainThread]: Using profiles.yml file at /home/airflow/.dbt/profiles.yml
+[0m16:38:01.317628 [info ] [MainThread]: Using dbt_project.yml file at /home/airflow/.dbt/dbt_project.yml
+[0m16:38:01.317933 [info ] [MainThread]: Configuration:
+[0m16:38:01.349312 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:38:01.349699 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m16:38:01.349976 [info ] [MainThread]: Required dependencies:
+[0m16:38:01.350247 [debug] [MainThread]: Executing "git --help"
+[0m16:38:01.353985 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:38:01.354494 [debug] [MainThread]: STDERR: "b''"
+[0m16:38:01.354728 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:38:01.355023 [info ] [MainThread]: Connection:
+[0m16:38:01.355331 [info ] [MainThread]:   host: postgresql-1eb6fc33-o593b7be3.database.cloud.ovh.net
+[0m16:38:01.355590 [info ] [MainThread]:   port: 20184
+[0m16:38:01.355827 [info ] [MainThread]:   user: avnadmin
+[0m16:38:01.356058 [info ] [MainThread]:   database: dwh
+[0m16:38:01.356286 [info ] [MainThread]:   schema: source
+[0m16:38:01.356533 [info ] [MainThread]:   search_path: None
+[0m16:38:01.356760 [info ] [MainThread]:   keepalives_idle: 0
+[0m16:38:01.356985 [info ] [MainThread]:   sslmode: None
+[0m16:38:01.357478 [info ] [MainThread]: Registered adapter: postgres=1.5.11
+[0m16:38:01.358040 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m16:38:01.358352 [debug] [MainThread]: Using postgres connection "debug"
+[0m16:38:01.358554 [debug] [MainThread]: On debug: select 1 as id
+[0m16:38:01.358750 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:38:01.712868 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m16:38:01.719476 [debug] [MainThread]: On debug: Close
+[0m16:38:01.722095 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m16:38:01.724613 [info ] [MainThread]: [31m1 check failed:[0m
+[0m16:38:01.726378 [info ] [MainThread]: Could not load dbt_project.yml
+
+[0m16:38:01.729280 [debug] [MainThread]: Command `dbt debug` failed at 16:38:01.728801 after 0.43 seconds
+[0m16:38:01.730406 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m16:38:01.731354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d0da66d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d0c157ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e2d0c1579d0>]}
+[0m16:38:01.732360 [debug] [MainThread]: Flushing usage events

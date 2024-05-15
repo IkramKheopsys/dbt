@@ -1,0 +1,9 @@
+version: 2
+
+sources : 
+ - name : source
+   database: dwh
+   schema : source
+   tables: 
+   - name: users
+   - name: orders
