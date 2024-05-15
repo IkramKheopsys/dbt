@@ -24,7 +24,7 @@ Ce projet utilise DBT pour la modélisation des données et Airflow pour l'orche
 ## Dossiers
 
 - `dags/`: Contient les fichiers DAG pour Airflow.
-- `users/`: Contient les fichiers de configuration et de modèle pour DBT.
+- `my_dbt_project/`: Contient les fichiers de configuration et de modèle pour DBT.
 
 ## Fichier JSON
 
@@ -41,7 +41,7 @@ Le fichier JSON a été généré à partir de DBT Docs.
 2. Accédez au répertoire DBT :
 
     ```bash
-    cd ~/users
+    cd ~/my_dbt_project
     ```
 NB : copiez les fichiers my_dbt_project + ./dbt du local vers le container pour avoir la même configuration
 
@@ -53,7 +53,8 @@ NB : copiez les fichiers my_dbt_project + ./dbt du local vers le container pour 
     dbt run                   # Exécutez les modèles DBT
     dbt seed                  # Exécutez les seeds DBT
     dbt snapshot              # Exécutez les snapshots DBT
-    dbt docs generate         #Exécutez la doc DBT
+    dbt docs generate         # Exécutez la doc DBT
+    dbt docs serve            # Executez la doc server
     ```
 
 
