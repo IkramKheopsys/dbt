@@ -24,7 +24,7 @@ Ce projet utilise DBT pour la modélisation des données et Airflow pour l'orche
 ## Dossiers
 
 - `dags/`: Contient les fichiers DAG pour Airflow.
-- `my_dbt_project/`: Contient les fichiers de configuration et de modèle pour DBT.
+- `users/`: Contient les fichiers de configuration et de modèle pour DBT.
 
 ## Fichier JSON
 
@@ -41,8 +41,9 @@ Le fichier JSON a été généré à partir de DBT Docs.
 2. Accédez au répertoire DBT :
 
     ```bash
-    cd ~/my_dbt_project
+    cd ~/users
     ```
+NB : copiez les fichiers my_dbt_project + ./dbt du local vers le container pour avoir la même configuration
 
 3. Exécutez les commandes DBT :
 
@@ -71,7 +72,8 @@ Dans le répertoire `snapshots/`, vous trouverez :
 ![image](https://github.com/IkramKheopsys/dbt/assets/113558455/8099d349-1709-47f1-b7c9-1283dc1442ed)
 ![image](https://github.com/IkramKheopsys/dbt/assets/113558455/e50a272f-512e-4d19-9e81-41f3d4c51004)
 ![image](https://github.com/IkramKheopsys/dbt/assets/113558455/6597476e-19ea-45f9-8410-563f36377ad4)
-1. Entrez dans le container Airflow :
+
+1. Entrez dans le container Airflow en mode root pour executer les commandes sudo :
 
     ```bash
     sudo docker exec -u 0 -it 7fb29f54367b bash
