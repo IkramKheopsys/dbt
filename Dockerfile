@@ -53,4 +53,4 @@ ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 
 COPY entrypoint.sh .
 
-ENTRYPOINT ["./start_script.sh"]
+ENTRYPOINT ["./spark_script.sh"]
