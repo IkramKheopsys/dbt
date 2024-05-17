@@ -1,55 +1,52 @@
-version: "3.3"
+version: '3.8'
+
 services:
   spark-master:
-    image: cluster-apache-spark:3.0.2
-    ports:
-      - "9090:8080"
-      - "7077:7077"
+    container_name: da-spark-master
+    build: .
+    image: da-spark-image
+    entrypoint: ['./entrypoint.sh', 'master']
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080" ]
+      interval: 5s
+      timeout: 3s
+      retries: 3
     volumes:
-       - ./apps:/opt/spark-apps
-       - ./data:/opt/spark-data
-    environment:
-      - SPARK_LOCAL_IP=spark-master
-      - SPARK_WORKLOAD=master
-  spark-worker-a:
-    image: cluster-apache-spark:3.0.2
+      - ./book_data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+      - spark-logs:/opt/spark/spark-events
+    env_file:
+      - .env.spark
     ports:
-      - "9091:8080"
-      - "7000:7000"
+      - '9090:8080'
+      - '7077:7077'
+
+
+  spark-history-server:
+    container_name: da-spark-history
+    image: da-spark-image
+    entrypoint: ['./entrypoint.sh', 'history']
     depends_on:
       - spark-master
-    environment:
-      - SPARK_MASTER=spark://spark-master:7077
-      - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
-      - SPARK_WORKLOAD=worker
-      - SPARK_LOCAL_IP=spark-worker-a
+    env_file:
+      - .env.spark
     volumes:
-       - ./apps:/opt/spark-apps
-       - ./data:/opt/spark-data
-  spark-worker-b:
-    image: cluster-apache-spark:3.0.2
+      - spark-logs:/opt/spark/spark-events
     ports:
-      - "9092:8080"
-      - "7001:7000"
+      - '18080:18080'
+
+  spark-worker:
+#    container_name: da-spark-worker
+    image: da-spark-image
+    entrypoint: ['./entrypoint.sh', 'worker']
     depends_on:
       - spark-master
-    environment:
-      - SPARK_MASTER=spark://spark-master:7077
-      - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
-      - SPARK_WORKLOAD=worker
-      - SPARK_LOCAL_IP=spark-worker-b
+    env_file:
+      - .env.spark
     volumes:
-        - ./apps:/opt/spark-apps
-        - ./data:/opt/spark-data
-  demo-database:
-    image: postgres:11.7-alpine
-    ports: 
-      - "5432:5432"
-    environment: 
-      - POSTGRES_PASSWORD=casa1234
+      - ./book_data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+      - spark-logs:/opt/spark/spark-events
+
+volumes:
+  spark-logs:
